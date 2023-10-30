@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('conexao', function (Blueprint $table) {
             $table->id('id_conexao');
-            $table->unsignedBigInteger('nome_conexao');
+            $table->string('nome_conexao');
             $table->timestamps();
         });
     }
