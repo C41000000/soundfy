@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('musica', function (Blueprint $table) {
             $table->id('id_musica');
             $table->string('titulo');
-            $table->integer('id_genero');
+            $table->unsignedBigInteger('id_genero');
             $table->timestamps();
             $table->unsignedBigInteger('usr_id');
             $table->foreign('usr_id')->references('usr_id')->on('users');

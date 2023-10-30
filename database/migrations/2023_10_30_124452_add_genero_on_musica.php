@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projeto_musical', function (Blueprint $table) {
-            $table->id('id_projeto');
-            $table->string('nome');
-            $table->string('descricao')->unique();
-            $table->unsignedBigInteger('usr_id');
-            $table->foreign('usr_id')->references('usr_id')->on('users');
+        Schema::table('musica', function (Blueprint $table){
+
+            $table->foreign("id_genero")->references('id_genero')->on('genero');
         });
     }
 
