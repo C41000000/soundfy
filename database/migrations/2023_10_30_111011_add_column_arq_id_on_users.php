@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table){
+            $table->unsignedBigInteger('arq_id')->nullable();
             $table->foreign("arq_id")->references('arq_id')->on('arquivos');
         });
     }
