@@ -15,7 +15,7 @@ class ArquivoFactory extends Factory
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Arquivo::class;
 
     /**
      * Define the model's default state.
@@ -27,7 +27,7 @@ class ArquivoFactory extends Factory
         return [
             'nome' => $this->faker->userName(),
             'caminho' => $this->faker->text(),
-            'tipo' => $this->faker->name(),
+            'tipo' => 'foto',
         ];
     }
 }

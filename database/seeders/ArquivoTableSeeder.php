@@ -15,12 +15,14 @@ class ArquivoTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-
-        foreach (range(1, 10) as $key => $index) {
+        $tipo = [
+            '1' => 'musica', '2' => 'foto'
+        ];
+        foreach (range(1, 2) as $key => $index) {
             DB::table('musica')->insert([
                 'nome' => $faker->userName,
                 'caminho' => $faker->text,
-                'tipo' => $faker->name,
+                'tipo' => $tipo[$key],
             ]);
         }
     }
