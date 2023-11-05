@@ -13,6 +13,8 @@ class MembrosProjeto extends Model
 
     protected $primaryKey = 'memb_id'; // Nome da chave primária
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

@@ -13,6 +13,8 @@ class ProjetoMusical extends Model
 
     protected $primaryKey = 'id_projeto'; // Nome da chave primária
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

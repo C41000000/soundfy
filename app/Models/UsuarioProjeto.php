@@ -13,6 +13,8 @@ class UsuarioProjeto extends Model
 
     protected $primaryKey = 'usr_projeto_id'; // Nome da chave primária
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
