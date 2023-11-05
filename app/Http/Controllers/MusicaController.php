@@ -10,4 +10,15 @@ class MusicaController extends Controller
     {
         return view('musica.index');
     }
+
+    public function showForm()
+    {
+        return view('musica.cadastro');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
+    }
 }

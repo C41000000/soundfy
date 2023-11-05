@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::prefix('musica')->group(function () {
     Route::get('/', [MusicaController::class, 'index']);
+    Route::get('/cadastro', [MusicaController::class, 'showForm']);
+    Route::post('/cadastro', [MusicaController::class, 'store']);
 });
 
 Route::middleware([
