@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MusicaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('musica')->group(function () {
+    Route::get('/', [MusicaController::class, 'index']);
 });
 
 Route::middleware([
