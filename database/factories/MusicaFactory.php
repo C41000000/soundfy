@@ -3,19 +3,19 @@
 namespace Database\Factories;
 
 use App\Models\Team;
-use App\Models\User;
+use App\Models\Musica;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
-class UserFactory extends Factory
+class MusicaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Musica::class;
 
     /**
      * Define the model's default state.
@@ -26,10 +26,10 @@ class UserFactory extends Factory
     {
         return [
             'titulo' => $this->faker->name(),
-            'id_genero' => null,
+            'id_genero' => 1,
             'created_at' => now(),
             'updated_at' => now(),
-            'usr_id' => null,
+            'usr_id' => 1,
         ];
     }
 

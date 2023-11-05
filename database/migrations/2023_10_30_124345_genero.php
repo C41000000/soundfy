@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_genero');
             $table->string('nome')->unique();
             $table->string('descricao');
+            $table->timestamps();
         });
     }
 
