@@ -41,6 +41,6 @@ class Musica extends Model
     }
 
     public function users(){
-        return $this->hasOne(User::class;)
+        return $this->hasOne(User::class, 'id_genero', 'id_genero');
     }
 }

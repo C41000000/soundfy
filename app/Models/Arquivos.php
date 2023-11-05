@@ -26,4 +26,9 @@ class Arquivo extends Model
 
     // Você pode definir validação para o campo 'tipo' para garantir que ele seja 'foto' ou 'musica'
 
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
+    }
+
 }

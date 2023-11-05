@@ -28,7 +28,7 @@ class Conexao extends Model
      */
     public function conexao()
     {
-        return $this->belongsTo(Conexao::class, 'id_conexao', 'id_conexao');
+        return $this->belongsToMany(Conexao::class, 'id_conexao', 'id_conexao');
     }
 
     /**
@@ -36,6 +36,6 @@ class Conexao extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'usr_id', 'usr_id');
+        return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
     }
 }

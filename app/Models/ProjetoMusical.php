@@ -29,6 +29,6 @@ class ProjetoMusical extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'usr_id', 'usr_id');
+        return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
     }
 }

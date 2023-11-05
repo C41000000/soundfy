@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MembroProjeto extends Model
+class MembrosProjeto extends Model
 {
     use HasFactory;
 
@@ -28,7 +28,7 @@ class MembroProjeto extends Model
      */
     public function projeto()
     {
-        return $this->belongsTo(ProjetoMusical::class, 'id_projeto', 'id_projeto');
+        return $this->belongsToMany(ProjetoMusical::class, 'id_projeto', 'id_projeto');
     }
 
     /**
@@ -36,6 +36,6 @@ class MembroProjeto extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'usr_id', 'usr_id');
+        return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
     }
 }
