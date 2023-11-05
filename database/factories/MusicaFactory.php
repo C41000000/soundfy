@@ -25,15 +25,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => $this->faker->name(),
-            'nome_usuario' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'two_factor_secret' => null,
-            'two_factor_recovery_codes' => null,
-            'remember_token' => Str::random(10),
-            'profile_photo_path' => null,
-            'current_team_id' => null,
+            'titulo' => $this->faker->name(),
+            'id_genero' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+            'usr_id' => null,
         ];
     }
 
