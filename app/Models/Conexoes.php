@@ -13,6 +13,8 @@ class Conexoes extends Model
 
     protected $primaryKey = 'conexoes_id'; // Nome da chave primária
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -38,4 +40,6 @@ class Conexoes extends Model
     {
         return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
     }
+
+
 }

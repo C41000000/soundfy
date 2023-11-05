@@ -21,4 +21,6 @@ class Conexao extends Model
     protected $fillable = [
         'nome_conexao',
     ];
+
+    public $timestamps = false;
 }

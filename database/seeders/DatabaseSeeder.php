@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder
         \App\Models\Arquivo::factory(10)->create();
         \App\Models\Genero::factory(10)->create();
         \App\Models\Musica::factory(10)->create();
+
+        \App\Models\Conexao::factory(10)->create();
+        \App\Models\Conexoes::factory(10)->create();
+        \App\Models\FeedAtividades::factory(10)->create();
+        \App\Models\ProjetoMusical::factory(10)->create();
+        \App\Models\MembrosProjeto::factory(10)->create();
+        \App\Models\UsuarioProjeto::factory(10)->create();
     }
 }
