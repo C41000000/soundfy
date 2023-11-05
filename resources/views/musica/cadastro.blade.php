@@ -20,8 +20,11 @@
                                             <div class="form-group">
                                                 <label>Genero da Musica</label>
                                                 <div class="input-group">
-                                                    <select name='genero_id' class="form-control select2" style="width: 100%;">
+                                                    <select name='id_genero' class="form-control select2" style="width: 100%;">
                                                         <option value="">Selecione</option>
+                                                        @foreach($generos as $genero)
+                                                            <option value="{{$genero->id}}">{{$genero->nome}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -52,4 +55,20 @@
         </div>
     </div>
 </div>
+    <script>
+        $('.cadastro').on('click', function () {
+            let dados = $("#formCadastroMusica").serializeArray();
+            $.ajax({
+                url: '/musica/cadastro',
+                type: 'POST',
+                data: dados,
+                success: function (data) {
+
+                },
+                error: function (data) {
+
+                }
+            });
+        })
+    </script>
 @endsection
