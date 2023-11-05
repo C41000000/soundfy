@@ -12,8 +12,9 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-        <script src={{ asset("/public/js/musica/cadastro.js")}} type="text/javascript"></script>
-        <script src='/public/js/layouts/main.js'></script>
+        
+        <script src='../../js/musica/cadastro.js'></script>
+        
         <meta name="theme-color" content="#712cf9">
     </head>
     <body>
