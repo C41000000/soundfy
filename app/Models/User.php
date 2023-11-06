@@ -25,7 +25,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
-        'name',
+        'nome',
+        'nome_usuario',
         'email',
         'password',
     ];
@@ -59,4 +60,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function feed(){
+        return $this->hasMany(FeedAtividades::class, 'usr_id', 'usr_id');
+    }
 }

@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\FeedAtividadesController;
+use App\Http\Controllers\AutenticacaoController;
+use App\Http\Controllers\SingUpController;
 use App\Http\Controllers\MusicaController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+//Route::get('/', function () {
+//    return view('login');
+//});
+
+
+Route::middleware(['web'])->prefix('autenticacao')->group(function (){
+    Route::post('/cadastro', [AutenticacaoController::class, 'cadastro'])->name('cadastro');
+    Route::any('/login', [AutenticacaoController::class, 'login'])->name('login');
+    Route::get('/logout', [AutenticacaoController::class, 'logout'])->name('logout');
+
 });
+
+
+Route::get('/', [FeedAtividadesController::class, 'index'])->name('inicio');
 
 Route::prefix('musica')->group(function () {
     Route::get('/', [MusicaController::class, 'index']);
