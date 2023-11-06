@@ -13,23 +13,25 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
 
-        <script src='../../js/musica/cadastro.js'></script>
-
-        <meta name="theme-color" content="#712cf9">
+        <script src='../../js/layouts/main.js'></script>
         <style>
-            nav > a{
-                color:white;
+            #message-danger, #message-success{
+                position: absolute;
+                bottom: 0;
+                min-width: 100vw;
             }
         </style>
+        <meta name="theme-color" content="#712cf9">
+
     </head>
     <body>
     @if(session()->has('error-message'))
-        <div class="alert alert-danger">
+        <div id='message-danger' class="alert alert-danger">
             {{session('error-message')}}
         </div>
     @endif
     @if(session()->has('success-message'))
-        <div class="alert alert-success">
+        <div id='message-success' class="alert alert-success">
             {{session('success-message')}}
         </div>
     @endif
@@ -42,23 +44,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home" aria-current="page" href="{{route('inicio')}}">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link active" id="home" style="color:white" aria-current="page" href="{{route('inicio')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/musica">Musica</a>
+                        <a class="nav-link" href="/musica" style="color:white">Musica</a>
                     </li>
                    @if(!session()->has('user'))
                     <li class="nav-item">
-                        <a class="nav-link active" id="home" aria-current="page" href="{{route('login')}}">login</a>
+                        <a class="nav-link active" id="home" style="color:white" aria-current="page" href="{{route('login')}}">login</a>
                     </li>
                     @endguest
                     @if(session()->has('user'))
                     <li class="nav-item">
-                        <a class="nav-link active" id="home" aria-current="page" href="{{route('logout')}}">logout</a>
+                        <a class="nav-link active" id="home" style="color:white" aria-current="page" href="{{route('logout')}}">logout</a>
                     </li>
                     @endguest
 {{--                    <li class="nav-item dropdown">--}}

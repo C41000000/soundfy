@@ -1,6 +1,6 @@
 @extends('layouts.main')
-
+{{--@yield('title', 'Feed')--}}
 
 @section('content')
-    <h3>a</h3>
+
 @endsection

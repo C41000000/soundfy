@@ -1,19 +1,24 @@
-@php
-
-@endphp
+<title> @yield('title','Login') </title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link rel="stylesheet" type="text/css" href="../../css/auth/login.css">
+<link rel="stylesheet" type="text/css" href="../../css/auth/login.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="../../js/auth/login.js"></script>
+<script src="../../js/layouts/main.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+        <style>
+            #message-danger, #message-success{
+                position: absolute;
+                bottom: 0;
+                min-width: 100vw;
+            }
+        </style>
 <body>
     @if(session()->has('error-message'))
-        <div class="alert alert-danger">
+        <div id="message-danger" class="alert alert-danger">
             {{session('error-message')}}
         </div>
     @endif
@@ -23,6 +28,9 @@
 			<div id="first">
 				<div class="myform form ">
 					 <div class="logo mb-3">
+                         <div class="center-image">
+                             <img style="border-radius: 3em" src="../../img/logo-nav.png">
+                         </div>
 						 <div class="col-md-12 text-center">
 							<h1>Login</h1>
 						 </div>
