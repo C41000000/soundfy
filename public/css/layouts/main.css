@@ -1,10 +1,20 @@
             #message-danger, #message-success{
                 position: absolute;
-                bottom: 0;
+                bottom: 5%;
                 min-width: 500px;
-                left: 38%;
+
                 text-align: center;
 
+            }
+            @media (max-width: 720px) {
+                #message-danger, #message-success{
+                    position: absolute;
+                    bottom: 5%;
+                    min-width: 300px;
+
+                    text-align: center;
+
+                }
             }
             html {
                 position: relative;
@@ -12,6 +22,7 @@
             }
 
             body {
+                min-height: 100vh;
                 margin: 0;
                 padding: 0;
                 padding-bottom: 60px;
@@ -20,7 +31,7 @@
 
             footer {
                 position: absolute;
-                bottom: 5%;
+                bottom: 0;
                 width: 100vw;
                 height: 60px;
                 background: linear-gradient(to bottom, #6d0680, #2a0f57);
@@ -33,4 +44,9 @@
 
             #profile-photo{
                 max-width: 40px;
+            }
+
+            .nav-pesquisa{
+                border-radius: 3em;
+
             }

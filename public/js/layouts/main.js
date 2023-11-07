@@ -5,6 +5,6 @@ $(function (){
         })
         sessionStorage.setItem('message-danger', false);
         sessionStorage.setItem('message-success', false);
-    }, 5000)
+    }, 500000000)
 
 })

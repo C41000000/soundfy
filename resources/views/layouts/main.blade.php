@@ -1,5 +1,9 @@
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href='../../css/layouts/main.css' rel="stylesheet">
+        @yield('styles')
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title> @yield('title', $title) </title>
         <meta charset="UTF-8">
@@ -9,15 +13,15 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
-        <link href='../../css/layouts/main.css' rel="stylesheet">
+{{--        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">--}}
+        <script src="https://kit.fontawesome.com/252b052824.js" crossorigin="anonymous"></script>
         <script src='../../js/layouts/main.js'></script>
         <style>
 
         </style>
         <meta name="theme-color" content="#712cf9">
-
+        @yield('scripts')
     </head>
     <body>
     @if(session()->has('error-message'))
@@ -53,12 +57,19 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="home" style="color:white" aria-current="page" href="{{route('login')}}">Login</a>
                     </li>
-                    @endguest
+                    @endif
                     @if(session()->has('user'))
                     <li class="nav-item">
                         <a class="nav-link active" id="home" style="color:white" aria-current="page" href="{{route('logout')}}">Logout</a>
                     </li>
-                    @endguest
+                    @endif
+                    @if(session()->has('user'))
+                        <li style="display: flex">
+                            <input class='nav-pesquisa' type="text" placeholder="Pesquisar"/>
+                            <button class="btn btn-light">Pesquisar</button>
+
+                        </li>
+                    @endif
                 </ul>
 
             </div>
@@ -68,12 +79,8 @@
         @yield('content')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-1 mb-3">
-              <li class="nav-item"><a href="/" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
-            </ul>
-            <p class="text-center text-muted">&copy; @php echo date('Y') @endphp ProjectGuys, Corp</p>
+        <footer class="">
+            <p  class="text-center text-light py-3">&copy; @php echo date('Y') @endphp ProjectGuys, Corp</p>
         </footer>
     </body>
 </html>

@@ -1,8 +1,9 @@
 <?php
 use App\Http\Controllers\FeedAtividadesController;
 use App\Http\Controllers\AutenticacaoController;
-use App\Http\Controllers\SingUpController;
 use App\Http\Controllers\MusicaController;
+use App\Http\Controllers\GeneroController;
+use App\Http\Controllers\ArtistaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,14 @@ Route::prefix('musica')->group(function () {
     Route::get('/', [MusicaController::class, 'index']);
     Route::get('/cadastro', [MusicaController::class, 'showForm']);
     Route::post('/cadastro', [MusicaController::class, 'store']);
+});
+
+Route::prefix('genero')->group(function (){
+    Route::post('/store', [GeneroController::class, 'store'])->name('store');
+});
+
+Route::prefix('artista')->group(function (){
+    Route::post('/store', [ArtistaController::class, 'store']);
 });
 
 Route::middleware([

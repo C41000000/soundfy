@@ -1,0 +1,17 @@
+#post-photo{
+    width: 30px;
+}
+
+#post-text{
+    width: 100%;
+}
+
+#new-post{
+    cursor: pointer;
+}
+
+.modal-header{
+    background: linear-gradient(to bottom, #6d0680, #2a0f57) !important;
+
+}
+

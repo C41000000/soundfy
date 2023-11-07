@@ -43,4 +43,8 @@ class Musica extends Model
     public function users(){
         return $this->hasOne(User::class, 'id_genero', 'id_genero');
     }
+
+    public function artista(){
+        return $this->hasOne(Artista::class, 'id_art', 'id_art');
+    }
 }

@@ -69,14 +69,24 @@
          color: #ff0000;
         }
         #second{display:none;}
+        #message-danger, #message-success{
+            position: absolute;
+            bottom: 0;
+            min-width: 445px;
+
+            text-align: center;
+
+        }
+        @media (max-width: 720px) {
             #message-danger, #message-success{
                 position: absolute;
-                bottom: 0;
-                min-width: 445px;
-                left: 38.45%;
+                bottom: 5%;
+                min-width: 300px;
+
                 text-align: center;
 
             }
+        }
         .center-image {
             display: flex;
             justify-content: center;

@@ -8,17 +8,17 @@
 <script src="../../js/layouts/main.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+{{--<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">--}}
+<script src="https://kit.fontawesome.com/252b052824.js" crossorigin="anonymous"></script>
 <body>
     @if(session()->has('error-message'))
         <div id="message-danger" class="alert alert-danger">
             {{session('error-message')}}
         </div>
     @endif
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
-			<div class="col-md-5 mx-auto">
+			<div class="col-md-5 col-sm-10 mx-auto">
 			<div id="first">
 				<div class="myform form ">
 					 <div class="logo mb-3">
