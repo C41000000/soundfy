@@ -23,7 +23,7 @@
                                                     <select name='id_genero' class="form-control select2" style="width: 100%;">
                                                         <option value="">Selecione</option>
                                                         @foreach($generos as $genero)
-                                                            <option value="{{$genero->id}}">{{$genero->nome}}</option>
+                                                            <option value="{{$genero->id_genero}}">{{$genero->nome}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

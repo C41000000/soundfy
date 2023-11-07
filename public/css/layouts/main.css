@@ -1,0 +1,36 @@
+            #message-danger, #message-success{
+                position: absolute;
+                bottom: 0;
+                min-width: 500px;
+                left: 38%;
+                text-align: center;
+
+            }
+            html {
+                position: relative;
+                min-height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                padding-bottom: 60px;
+                /*background-color: #6b7280;*/
+            }
+
+            footer {
+                position: absolute;
+                bottom: 5%;
+                width: 100vw;
+                height: 60px;
+                background: linear-gradient(to bottom, #6d0680, #2a0f57);
+            }
+
+            #main-nav{
+                background: linear-gradient(to bottom, #6d0680, #2a0f57);
+                color:white;
+            }
+
+            #profile-photo{
+                max-width: 40px;
+            }

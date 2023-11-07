@@ -11,7 +11,7 @@ class MusicaController extends Controller
 {
     public function index()
     {
-        return view('musica.index');
+        return view('musica.index', ['title' => "Músicas - Início"]);
     }
 
     public function showForm()
@@ -20,13 +20,16 @@ class MusicaController extends Controller
           'generos' => Genero::all()
         ];
 
-        return view('musica.cadastro')->with($dependencias);
+
+
+        return view('musica.cadastro', ['title' => 'Músicas - Cadastro'])->with($dependencias);
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['usr_id'] = Auth::user()->usr_id;
+        $user = session()->get('user')->only('usr_id');
+        $data['usr_id'] = $user['usr_id'];
 
         $musica = new Musica();
         $musica->fill($data);

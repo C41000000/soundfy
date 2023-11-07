@@ -12,7 +12,7 @@ class Genero extends Model
     protected $table = 'genero'; // Nome da tabela no banco de dados
 
     protected $primaryKey = 'id_genero'; // Nome da chave primária
-    public $timestamps = false;
+//    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
