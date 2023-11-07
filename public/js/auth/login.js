@@ -1,16 +1,8 @@
-// $("#signup").click(function() {
-// $("#first").fadeOut("fast", function() {
-// $("#second").fadeIn("fast");
-// });
-// });
-//
-//     $("#signin").click(function() {
-//         $("#second").fadeOut("fast", function() {
-//             $("#first").fadeIn("fast");
-//         });
-//     });
-//
-//
+$(document).ready(function (){
+    $("#email").val('').trigger('keydown');
+    $("#password").val('').css("background-color", '#fff');
+});
+
 
 $(function (){
     $("#signup").click(function (){
@@ -61,25 +53,25 @@ $(function() {
   $("form[name='registration']").validate({
     rules: {
       firstname: "required",
-      lastname: "required",
+      nome_usuario: "required",
       email: {
         required: true,
         email: true
       },
       password: {
         required: true,
-        minlength: 5
+        minlength: 8
       }
     },
 
     messages: {
-      firstname: "Please enter your firstname",
-      lastname: "Please enter your lastname",
+      firstname: "Primeiro nome obrigatório",
+      nome_usuario: "O nome de usuário é obrigatório",
       password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
+        required: "Favor digitar uma senha",
+        minlength: "Sua senha deve ter no mínimo 8 caractéres."
       },
-      email: "Please enter a valid email address"
+      email: "Informe um email válido"
     },
 
     submitHandler: function(form) {

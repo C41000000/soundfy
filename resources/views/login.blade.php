@@ -9,13 +9,7 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <style>
-            #message-danger, #message-success{
-                position: absolute;
-                bottom: 0;
-                min-width: 100vw;
-            }
-        </style>
+
 <body>
     @if(session()->has('error-message'))
         <div id="message-danger" class="alert alert-danger">
@@ -39,11 +33,11 @@
                        @csrf
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email</label>
-                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                              <input type="email" name="email"  class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Senha</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                              <input type="password" name="password" id=""  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                            </div>
                            <div class="form-group">
                               <p class="text-center">Ao cadastrar você aceita os  <a href="#">Termos de uso</a></p>
@@ -54,7 +48,7 @@
                            <div class="col-md-12 ">
                               <div class="login-or">
                                  <hr class="hr-or">
-                                 <span class="span-or">or</span>
+                                 <span class="span-or">ou</span>
                               </div>
                            </div>
                            <div class="col-md-12 mb-3">
@@ -86,7 +80,7 @@
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Nome de usuário</label>
-                              <input type="text"  name="nome_usuario" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Nome de usuário">
+                              <input type="text"  name="nome_usuario" class="form-control" id="nome_usuario" aria-describedby="emailHelp" placeholder="Nome de usuário">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email</label>

@@ -70,7 +70,7 @@ class AutenticacaoController extends Controller
     public function logout(){
         session()->flush();
         session()->invalidate();
-//        session()->forget('message');//
+
         return redirect()->route('inicio');
     }
 }

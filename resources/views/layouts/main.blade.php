@@ -18,7 +18,10 @@
             #message-danger, #message-success{
                 position: absolute;
                 bottom: 0;
-                min-width: 100vw;
+                min-width: 500px;
+                left: 38%;
+                text-align: center;
+
             }
         </style>
         <meta name="theme-color" content="#712cf9">

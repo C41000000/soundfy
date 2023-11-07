@@ -3,7 +3,8 @@ $(function (){
         $("[id^=message]").each(function (){
             $(this).remove();
         })
-        sessionStorage.setItem('message', null);
+        sessionStorage.setItem('message-danger', false);
+        sessionStorage.setItem('message-success', false);
     }, 5000)
 
 })
