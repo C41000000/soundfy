@@ -32,6 +32,8 @@ class AutenticacaoController extends Controller
                 session()->put('user', $user);
                 session()->flash('success-message', 'Autenticado com sucesso!');
                 return redirect()->route('inicio');
+            }else if($validate->fails()){
+                session()->flash('error-message',  $validate->errors()->first());
             }else{
                 session()->flash('error-message', 'Usuário ou senha inválida!');
                 return redirect()->route('login');

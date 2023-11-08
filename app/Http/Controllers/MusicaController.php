@@ -37,7 +37,6 @@ class MusicaController extends Controller
 
         $dependencias = [
             'user' => $user,
-            'artista' =>  Artista::all(),
             'generos' => Genero::all()
         ];
 

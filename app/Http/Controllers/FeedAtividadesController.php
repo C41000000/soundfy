@@ -20,7 +20,6 @@ class FeedAtividadesController extends Controller
 
             $dependencias = [
                 'user' => $user,
-
             ];
 
             return view('feed-atividades.index', ['title' => 'Feed - Início'])->with( $dependencias);
