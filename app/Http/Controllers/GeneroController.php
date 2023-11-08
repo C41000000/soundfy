@@ -29,7 +29,7 @@ class GeneroController extends Controller
         $genero->save();
 
 
-        return response()->json($this->toArray($genero), 200);
+        return response()->json($this->toArray($genero), 201);
     }
 
     public function  toArray($dados){
