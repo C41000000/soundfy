@@ -7,7 +7,6 @@ use App\Models\Artista;
 use App\Models\Arquivo;
 use App\Models\Musica;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class MusicaController extends Controller
 {

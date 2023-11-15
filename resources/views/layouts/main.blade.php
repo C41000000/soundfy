@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-
+        <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
@@ -40,11 +40,11 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: flex">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @if(session()->has('user'))
                     <li class="nav-item">
-                        <img id='profile-photo' src="{{ $user['path'] ? $user['path'] : '../../img/default-photo.png'  }}">{{$user['nome']}}
+
                     </li>
                     @endif
                     <li class="nav-item">
@@ -63,22 +63,51 @@
                         <a class="nav-link active" id="home" style="color:white" aria-current="page" href="{{route('logout')}}">Logout</a>
                     </li>
                     @endif
-                    @if(session()->has('user'))
-                        <li style="display: flex">
-                            <input class='nav-pesquisa' type="text" placeholder="Pesquisar"/>
-                            <button class="btn btn-light">Pesquisar</button>
+{{--                    @if(session()->has('user'))--}}
+{{--                        <li style="display: flex">--}}
+{{--                            <input class='nav-pesquisa' type="text" placeholder="Pesquisar"/>--}}
+{{--                            <button class="btn btn-light">Pesquisar</button>--}}
 
-                        </li>
-                    @endif
+{{--                        </li>--}}
+{{--                    @endif--}}
                 </ul>
-
+                {{$user['nome']}} <img id='profile-photo' src="{{ $user['path'] ? $user['path'] : '../../img/default-photo.png'  }}">
             </div>
         </div>
     </nav>
-    <div class="container">
-        @yield('content')
+    <div class="page-wrapper">
+        <div class="page-wrapper-row full-height">
+            <div class="page-wrapper-middle">
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container-fluid">
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper">
+                        <!-- BEGIN CONTENT BODY -->
+                        <!-- BEGIN PAGE HEAD-->
+                        <div class="page-head">
+                            <div class="container-fluid">
+                                <!-- BEGIN PAGE TITLE -->
+                                <div class="page-title">
+                                    <h1>@yield('title')
+                                    </h1>
+                                </div>
+                                <!-- END PAGE TITLE -->
+                            </div>
+                        </div>
+                        <!-- END PAGE HEAD-->
+                        <!-- BEGIN PAGE CONTENT BODY -->
+                        <div class="page-content">
+                            <div style="padding: 2% 10%" class="container-fluid">
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
         <footer class="">
             <p  class="text-center text-light py-3">&copy; @php echo date('Y') @endphp ProjectGuys, Corp</p>
         </footer>

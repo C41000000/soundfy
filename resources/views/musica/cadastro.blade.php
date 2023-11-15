@@ -2,63 +2,87 @@
 @section('styles')
     <link href="../../css/musica/cadastro.css">
 @endsection
+@section('title', 'Cadastro Música')
 @section('content')
-<div class="page-content-inner" >
-    <div class="row">
-        <div class="col-md-12">
-            <div class="tabbable-line boxless tabbable-reversed">
-                <div class="tab-pane active" id="tab_0">
-                    <div class="portlet box green">
-                        <div class="portlet-title">
-                            <div class="caption">Cadastro Musica</div>
-
-                        </div>
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Cadastrar Gênero</button>
-                        <div class="portlet-body form" style="padding: 5%">
-                            <form id="formCadastroMusica" role="form" method="POST" action="/musica/store" target="_blank">
-                                {{ csrf_field() }}
+    <div class="page-content-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabbable-line boxless tabbable-reversed">
+                    <div class="tab-pane active">
+                        <div class="portlet box green">
+                            <div class="portlet-body form">
                                 <div class="form-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Genero da Musica</label>
-                                                <div class="input-group">
-                                                    <select name='id_genero' class="form-control select2" style="width: 100%;">
-                                                        <option value="">Selecione</option>
-                                                        @foreach($generos as $genero)
-                                                            <option value="{{$genero->id_genero}}">{{$genero->nome}}</option>
-                                                        @endforeach
-                                                    </select>
+                                    <form id="formCadastroMusica" role="form" method="POST" action="/musica/store" target="_blank">
+                                        {{ csrf_field() }}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Genero da Música</label>
+                                                    <div class="input-group">
+                                                        <select name='id_genero' class="form-control select2" >
+                                                            <option value="">Selecione</option>
+                                                            @foreach($generos as $genero)
+                                                                <option value="{{$genero->id_genero}}">{{$genero->nome}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Cadastrar Gênero</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Titulo da Música</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Titulo da Música" name="titulo" id="titulo">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Titulo da Musica</label>
+                                                    <label>Compositor da Música</label>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="Titulo da Musica" name="titulo" id="titulo">
+                                                        <input type="text" class="form-control" placeholder="Compositor da Música" name="compositor" id="compositor">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Faixa MP3</label>
+                                                    <div class="input-group">
+                                                        <input type="file" class="form-control" placeholder="Faixa" name="faixa" id="faixa">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Letra da Música</label>
+                                                    <div class="input-group">
+                                                        <textarea name="letra" type="text" placeholder="Insira a Letra da Música" class="form-control" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-
-                                <div class="form-actions text-center" style="margin-top: 5%">
+                                <div class="form-actions text-center">
                                     <button onsubmit type="button" class="cadastro btn btn-primary">
                                         Salvar
                                     </button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <!-- Modal -->
 <div class="modal modal-lg fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
