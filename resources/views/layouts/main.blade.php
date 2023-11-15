@@ -17,11 +17,12 @@
 {{--        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">--}}
         <script src="https://kit.fontawesome.com/252b052824.js" crossorigin="anonymous"></script>
         <script src='../../js/layouts/main.js'></script>
-        <style>
 
-        </style>
+        <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
         <meta name="theme-color" content="#712cf9">
-        @yield('scripts')
+
+
+
     </head>
     <body>
     @if(session()->has('error-message'))
@@ -71,7 +72,9 @@
 {{--                        </li>--}}
 {{--                    @endif--}}
                 </ul>
+                @if(session()->has('user'))
                 {{$user['nome']}} <img id='profile-photo' src="{{ $user['path'] ? $user['path'] : '../../img/default-photo.png'  }}">
+                @endif
             </div>
         </div>
     </nav>
@@ -106,8 +109,10 @@
             </div>
         </div>
     </div>
+    @yield('scripts')
+    <script src="../../js/musica/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
         <footer class="">
             <p  class="text-center text-light py-3">&copy; @php echo date('Y') @endphp ProjectGuys, Corp</p>
         </footer>
