@@ -22,8 +22,11 @@ class FeedAtividadesController extends Controller
             $feed[$key]['arqs'] = $cada_post->arquivos;
         }
 
-        $lastUsers = User::all()->last()->take(5)->get();
+        $lastUsers = User::get();
 
+        if($lastUsers->first()){
+            $lastUsers = $lastUsers->last()->take(5)->get();
+        }
         foreach($lastUsers as $key => $cada_usr){
             if(session()->get('user') && $cada_usr->usr_id == session()->get('user')->only('user_id')){
                 unset($lastUsers[$key]);
