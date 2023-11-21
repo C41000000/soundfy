@@ -28,7 +28,11 @@ class Arquivo extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
+        return $this->belongsToMany(User::class, 'usr_id', 'usr_id')->where('tipo', 'musica');
+    }
+    public function teste()
+    {
+        return $this->belongsTo(User::class, 'usr_id', 'usr_id')->where('tipo', 'foto');
     }
 
 }

@@ -42,7 +42,10 @@ Route::prefix('genero')->group(function (){
     Route::post('/store', [GeneroController::class, 'store'])->name('store');
 });
 
+
 Route::prefix('artista')->group(function (){
+    Route::get("/perfil/{id}", [ArtistaController::class, 'index'])->name("perfil");
+    Route::any('/edit/{id}', [ArtistaController::class, 'edit'])->name('editar-usuario');
     Route::post('/store', [ArtistaController::class, 'store']);
 });
 

@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function feed(){
         return $this->hasMany(FeedAtividades::class, 'usr_id', 'usr_id');
     }
+
+    public function foto(){
+        return $this->hasOne(Arquivo::class, 'arq_id', 'arq_id')->where('tipo','foto');
+    }
 }

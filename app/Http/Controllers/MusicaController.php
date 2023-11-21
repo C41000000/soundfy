@@ -26,6 +26,7 @@ class MusicaController extends Controller
 
     public function showForm()
     {
+
         if(!session()->has('user')){
             session()->flash('message-error', 'Usuário não autenticado');
             return redirect()->route('inicio');

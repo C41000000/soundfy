@@ -43,33 +43,33 @@
 <script>
     let tableLista = "";
 
-    let datatableLista = function () {
-        tableLista = $('#lista_musica').DataTable({
-            ajax: {
-                url: '/musica/lista',
-                type: 'GET',
-            },
-            columns: [
-                {data: 'titulo', name: 'musica.titulo'},
-                {data: 'compositor', name: 'compositor.nome'},
-                {data: 'genero', name: 'genero.nome'},
-                {data: 'dt_criacao', name: 'musica.created_at'},
-                {
-                    "mRender": function (data, type, full) {
-                        let buttons = "";
-
-                        buttons += '<button  class="btn btn-xs btn-primary visualizar" title="Visualizar Música" data-id="' + full["id"] + '" type="button"><i class="glyphicon glyphicon-search"></i></button>';
-
-                        buttons += '<button  class="btn btn-xs btn-primary editar" title="Editar Música" data-id="' + full["id"] + '" type="button"><i class="glyphicon glyphicon-pencil"></i></button>';
-
-                        buttons += '<button  class="btn btn-xs btn-danger delete" title="Deletar Música" data-id="' + full["id"] + '" type="button"><i class="glyphicon glyphicon-remove"></i></button>';
-
-                        return buttons;
-                    },
-                    "width": "15%"
-                }
-            ]
-        });
-    };
+    // let datatableLista = function () {
+    //     tableLista = $('#lista_musica').DataTable({
+    //         ajax: {
+    //             url: '/musica/lista',
+    //             type: 'GET',
+    //         },
+    //         columns: [
+    //             {data: 'titulo', name: 'musica.titulo'},
+    //             {data: 'compositor', name: 'compositor.nome'},
+    //             {data: 'genero', name: 'genero.nome'},
+    //             {data: 'dt_criacao', name: 'musica.created_at'},
+    //             {
+    //                 "mRender": function (data, type, full) {
+    //                     let buttons = "";
+    //
+    //                     buttons += '<button  class="btn btn-xs btn-primary visualizar" title="Visualizar Música" data-id="' + full["id"] + '" type="button"><i class="glyphicon glyphicon-search"></i></button>';
+    //
+    //                     buttons += '<button  class="btn btn-xs btn-primary editar" title="Editar Música" data-id="' + full["id"] + '" type="button"><i class="glyphicon glyphicon-pencil"></i></button>';
+    //
+    //                     buttons += '<button  class="btn btn-xs btn-danger delete" title="Deletar Música" data-id="' + full["id"] + '" type="button"><i class="glyphicon glyphicon-remove"></i></button>';
+    //
+    //                     return buttons;
+    //                 },
+    //                 "width": "15%"
+    //             }
+    //         ]
+    //     });
+    // };
     datatableLista();
 </script>

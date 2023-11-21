@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Arquivo;
 use App\Models\User;
 
 
@@ -29,8 +30,13 @@ class AutenticacaoController extends Controller
 
             if(Auth::attempt($creds)){
                 $user = User::where('email', $creds['email'])->first();
+                $arq = Arquivo::where('arq_id', $user->arq_id)->first();
+
+                $user['foto'] = $arq ? $arq->caminho : "img/default-photo.png";
+
                 session()->put('user', $user);
                 session()->flash('success-message', 'Autenticado com sucesso!');
+
                 return redirect()->route('inicio');
             }else if($validate->fails()){
                 session()->flash('error-message',  $validate->errors()->first());

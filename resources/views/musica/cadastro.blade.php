@@ -151,7 +151,7 @@
                     alert('Gênero criado com sucesso!');
                     $("#fechar").trigger('click');
                     let opt = "<option value='" + response.id_genero+"'>"+ response.nome+"</option>";
-                    $('[name=id_genero').append(opt);
+                    $('[name=id_genero]').append(opt);
                 },
                 error:function (response = false){
                     alert('Ocorreu um erro ao criar o gênero');

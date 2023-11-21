@@ -1,89 +1,171 @@
 @extends('layouts.main')
-@section('styles')
-<link href="../../css/feed-atividades/index.css" rel="stylesheet">
-@endsection
 
-@section('scripts')
-    <script src="../../js/feed-atividades/index.js"></script>
-@endsection
+@php
+    $image = Session::get("user")? Session::get("user")['foto'] : "img/default-photo.png";
+
+@endphp
 
 @section('content')
-<div class="container mt-4">
 
-    <div class="row">
-        <div class="col-md-3">
-            @if(session()->has('user'))
-            <!-- Coluna esquerda para perfil do usuário -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{$user['nome']}}</h5>
-                    <p class="card-text">Informações do perfil e foto</p>
+    <main class="items-flex w90 center just-space-between w95-device-small">
+
+        <section class="container-menu w20 w100-device-small container-order">
+            <div class="wrap items-flex just-space-between">
+                <div
+                    id='div-foto'
+                    class="row w100"
+
+                    href="@if(Session::get('user')){{route('perfil', ['id' => Session::get('user')['usr_id']])}}@endif"
+                >
+                    <div class="item text-center margin-down-small">
+                        <figure class="box-banner margin-down-small-in">
+                            <img src="{{ $image }}" />
+                        </figure>
+                        <h6>Seja bem vindo(a)
+                            @php
+                                if(session()->has('user'))
+                                    echo Session::get('user')['nome'];
+                            @endphp
+                        </h6>
+                    </div>
+                    <div class="item margin-down-small">
+{{--                        @foreach($communitys as $groups)--}}
+{{--                            <div class="margin-down-small">--}}
+{{--                                <a href="{{ route('group', $groups->id) }}">--}}
+{{--                                    <figure class="box-banner margin-down-small-in">--}}
+{{--                                        <img src="<?php if($groups->image !== null){ echo url("storage/$groups->image"); }else{ echo url("storage/posts/hello-world.png"); } ?>" />--}}
+{{--                                    </figure>--}}
+{{--                                    <h5>{{ $groups->name_community }}</h5>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+                    </div>
                 </div>
             </div>
-            @endif
-        </div>
-        <div class="col-md-6">
-            <!-- Coluna central para o feed de notícias -->
-{{--            @if(session()->has('user'))--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-body" >--}}
-{{--                   <img id='post-photo' src="{{ $user['path'] ? $user['path'] : '../../img/default-photo.png'  }}">--}}
-{{--                    <input id='new-post' type="text" class="form-control" data-bs-toggle="modal" data-bs-target="#staticBackdrop" placeholder="O que está havendo?">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            @endif--}}
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Novo Post</h5>
-                    <p class="card-text">Conteúdo do seu post.</p>
-                    <a href="#" class="card-link">Curtir</a>
-                    <a href="#" class="card-link">Comentar</a>
-                </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <!-- Coluna direita para anúncios ou outras informações -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Anúncios</h5>
-                    <p class="card-text">Anúncios patrocinados ou outras informações.</p>
-                </div>
+        </section>
+
+        <section class="container w50 w100-device-small">
+            <div class="wrap">
+
+                <section class="margin-down-default">
+                    <div class="title margin-down-small">
+                        <h3>Novos usuários</h3>
+                    </div>
+                    <div class="slide">
+                        <ul class="storys items-flex">
+                            @foreach ($lastUsers as $user)
+                                <li>
+                                    <a href="{{ route('perfil', $user->usr_id) }}" class="text-center">
+                                        <figure>
+                                            <img src="{{ url("{$user->foto}") }}" class="bgBlackWeakIn" />
+                                        </figure>
+                                        <h6>{{ $user->nome }}</h6>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="margin-down-small">
+                    <h3>Atividades</h3>
+                </section>
+
+                <section class="container-form margin-down-small">
+                    <div class="row items-flex">
+{{--                        <figure class="img-user-default margin-right-small items-flex align-baseline">--}}
+{{--                            <img src="{{ url("{$image}") }}" />--}}
+{{--                        </figure>--}}
+{{--                        <form class="new-post w100 pos-relative" method="post" action="{{ route('store') }}" enctype="multipart/form-data">--}}
+{{--                            @csrf--}}
+{{--                            <input type="text" name="title" placeholder="New post" class="w100" />--}}
+{{--                            <textarea class="text-content hide" name="content" placeholder="Hello World"></textarea>--}}
+{{--                            <div class="buttons items-flex">--}}
+{{--                                <a class="button toggle"><i class="ri-text"></i></a>--}}
+{{--                                <input type="file" name="image" id="image" style="display:none" />--}}
+{{--                                <label for="image" class="button"><i class="ri-image-add-line"></i></label>--}}
+{{--                                <button type="submit"><i class="ri-send-plane-line"></i></button>--}}
+{{--                                <input type="hidden" name="user" value="{{ Session::get('email'); }}" />--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+                    </div>
+                </section>
+
+                <section class="items">
+                    @foreach($posts as $post)
+                        @include('components.content-post')
+                    @endforeach
+
+                </section>
+
             </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<!-- Button trigger modal -->
+        </section>
 
+        <section class="container w20 w100-device-small">
+            <div class="wrap">
 
-<!-- Modal -->
-{{--<div class="modal modal-lg fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">--}}
-{{--  <div class="modal-dialog">--}}
-{{--    <div class="modal-content">--}}
-{{--      <div class="modal-header">--}}
-{{--        <h1 class="modal-title fs-5 text-light" id="staticBackdropLabel">Novo Post</h1>--}}
-{{--        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-{{--      </div>--}}
-{{--      <div class="modal-body">--}}
-{{--          <form>--}}
-{{--                <div class="mb-3 col-4">--}}
-{{--                    <label for="titulo" class="form-label">Título</label>--}}
-{{--                    <input type="text" class="form-control" id="titulo" >--}}
-{{--                </div>--}}
-{{--              <div class="mb-3 col-4">--}}
-{{--                  <label for="artista" class="form-label">Gênero</label>--}}
-{{--              </div>--}}
-{{--                <input type="file" style="display: none" name="musica" id="musica">--}}
-{{--                <label id="song-upload" class="btn btn-success" for="musica"><i class="fa-solid fa-upload" ></i></label>--}}
-{{--            </form>--}}
-{{--      </div>--}}
-{{--      <div class="modal-footer">--}}
-{{--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>--}}
-{{--        <button type="button" class="btn btn-primary">Confirmar</button>--}}
-{{--      </div>--}}
-{{--    </div>--}}
-{{--  </div>--}}
-{{--</div>--}}
+                <section class="notifications margin-down-default">
+                    <div class="wrap">
+                        <div class="box">
+                            <p>NOTIFICAÇÕES</p>
+{{--                            <?php--}}
+{{--                            foreach($friendsRequests as $friendRequest) {--}}
+{{--                            foreach($users as $user){--}}
+{{--                            if($friendRequest->user_to == $user->id){--}}
+{{--                            if($friendRequest->user_from != Session::get('id')){--}}
+{{--                            if($friendRequest->status != 'approved' && $friendRequest->status != 'reject'){--}}
+{{--                                $user = DB::select('select * from users where id = :id', ['id' => $friendRequest->user_from]);--}}
+{{--                                $user = $user[0];--}}
+{{--                                ?>--}}
+{{--                            <div class="items-flex margin-top-small align-center">--}}
+{{--                                <figure class="img-user-small margin-right-small items-flex align-center">--}}
+{{--                                    <img src="{{ url("storage/{$user->image}") }}" />--}}
+{{--                                </figure>--}}
+{{--                                <h6>{{ $user->name }} asked to be your friend</h6>--}}
+{{--                            </div>--}}
+{{--                            <?php }}}}} ?>--}}
+                            <?php ?>
+{{--                            foreach($posts as $post) {--}}
+{{--                            if($post->created_at >= date('Y-m-d')){--}}
+{{--                                ?>--}}
+{{--                            <div class="items-flex margin-top-small align-center">--}}
+{{--                                <figure class="img-user-small margin-right-small items-flex align-center">--}}
+{{--                                    <img src="{{ url("storage/{$post->image}") }}" />--}}
+{{--                                </figure>--}}
+{{--                                <h6>New post: {{ $post->title }}</h6>--}}
+{{--                            </div>--}}
+{{--                            <?php }} ?>--}}
+                        </div>
+                    </div>
+                </section>
 
+                <section class="users">
+                    <div class="wrap">
+                        <p>Meus Projetos Musicais</p>
+                        <ul class="margin-top-small">
+{{--                            <?php--}}
+{{--                            foreach ($friendsRequests as $friendRequest) {--}}
+{{--                            foreach($users as $user){--}}
+{{--                            if($friendRequest->user_from == $user->id){--}}
+{{--                            if($friendRequest->status == 'approved'){--}}
+{{--                                $user = DB::select('select * from users where id = :id', ['id' => $friendRequest->user_from]);--}}
+{{--                                $user = $user[0];--}}
+{{--                                ?>--}}
+{{--                            <li class="items-flex align-center margin-down-small">--}}
+{{--                                <figure class="img-user-default margin-right-small items-flex align-center">--}}
+{{--                                    <img src="{{ url("storage/{$user->image}") }}" />--}}
+{{--                                </figure>--}}
+{{--                                <h6>{{ $user->name }}</h6>--}}
+{{--                            </li>--}}
+{{--                            <?php }}}} ?>--}}
+                        </ul>
+                    </div>
+                </section>
 
+            </div>
+        </section>
+    </main>
+
+    <script src="<?php echo asset('js/feed-atividades/index.js')?>"></script>
 @endsection
