@@ -89,7 +89,7 @@
 
 <footer>
     <div class="wrap items-flex align-center just-center">
-        <p>foda..</p>
+        <p>@php echo 'Jallim Habbei, '. date("Y") @endphp</p>
     </div>
 </footer>
 @yield('scripts');

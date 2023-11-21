@@ -18,19 +18,18 @@ class FeedAtividadesController extends Controller
 
         foreach($feed as $key => $cada_post){
             $feed[$key]['user'] = $cada_post->user;
-            $feed[$key]['user']['foto'] = $cada_post->user->foto;
+            $feed[$key]['user']['foto'] = $cada_post->user->foto ? $cada_post->user->foto : null;
             $feed[$key]['arqs'] = $cada_post->arquivos;
         }
 
-        if(Session::get('user')){
-
-            $lastUsers = User::where("usr_id", "!=", session()->get('user')->only('usr_id'))->latest()->take(10)->get();
-        }else{
-            $lastUsers = User::all()->last()->take(5)->get();
-        }
+        $lastUsers = User::all()->last()->take(5)->get();
 
         foreach($lastUsers as $key => $cada_usr){
-            $lastUsers[$key]['foto'] = $cada_usr->foto['caminho'];
+            if(session()->get('user') && $cada_usr->usr_id == session()->get('user')->only('user_id')){
+                unset($lastUsers[$key]);
+                continue;
+            }
+            $lastUsers[$key]['foto'] = $cada_usr->foto ? $cada_usr->foto['caminho'] : "img/default-photo.png";
         }
         return view('feed-atividades.index', ['posts' => $feed, 'lastUsers' => $lastUsers]);
     }

@@ -8,7 +8,7 @@
                 <div class="banner items-flex align-end">
                     <div class="row w100 items-flex align-center flex-wrap">
                         <figure class="img-profile w15 margin-right-default">
-                            <img src="{{ url($user->foto->caminho) }}" />
+                            <img src="{{ url($user->foto ?$user->foto->caminho: "img/default-photo.png" ) }}" />
                         </figure>
                         <div class="col w60-device-small">
                             <h3>{{ $user->nome }}</h3>

@@ -11,6 +11,7 @@ class ArtistaController extends Controller
 {
     public function index($id){
         $data = User::where('usr_id', $id)->first();
+
         $data['foto'] = Arquivo::where('arq_id', $data['arq_id'])->first();
         $feed = FeedAtividades::where('usr_id', $id)->get();
 
