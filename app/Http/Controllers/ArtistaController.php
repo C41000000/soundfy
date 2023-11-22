@@ -40,7 +40,7 @@ class ArtistaController extends Controller
                     $requestImage->move(public_path('img/'), $nome);
 
                     $teste = Arquivo::create([
-                        'nome' => 'fotoPerfil -'. $dados->nome,
+                        'nome' => 'fotoPerfil -'. $dados['nome'],
                         'caminho' => "img/". $nome,
                         'tipo'  => 'foto'
                     ]);
