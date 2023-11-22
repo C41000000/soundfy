@@ -25,30 +25,41 @@ class ArtistaController extends Controller
     }
 
     public function edit(Request $request, $id){
-        if($request->method() == "POST"){
+        $user = User::where('usr_id', $id)->first();
 
+        if($request->method() == "POST"){
             try{
                 $dados = $request->all();
-
                 if($request->hasFile('image')){
                     $image = $request->file('image');
                     $default_path = "/img";
 
+
                     $nome = $image->getClientOriginalName();
                     $image->move($default_path, $nome);
-                }
+                    $teste = Arquivo::create([
+                        'nome' => 'aa',
+                        'caminho' => 'askdjkl',
+                        'tipo'  => 'foto'
+                    ]);
 
-                $user = User::where('usr_id', $id);
+                    $user->update([
+                        'arq_id' => $teste->arq_id
+                    ]);
+
+
+                }
 
                 $user->update([
                     'nome' => $dados['nome'],
                     'nome_usuario' => $dados['nome_usuario'],
                     'email' => $dados['email'],
-                    'password' => $dados['password'] ? Hash::make($dados['password']) : $user->password
+//                    'password' => $dados['password'] ? Hash::make($dados['password']) : $user->password
                 ]);
                 session()->flash("success-message", "Dados atualizados");
             }
             catch (\Exception $e){
+                dd($e->getMessage());
                 session()->flash('error-message', 'Ocorreu um erro ao atualizar os dados!');
             }
         }
