@@ -34,19 +34,19 @@ class ArtistaController extends Controller
                     $image = $request->file('image');
                     $default_path = "/img";
 
-
+                    $requestImage = $request->image;
+                    $extension = $requestImage->extension();
                     $nome = $image->getClientOriginalName();
-                    $image->move($default_path, $nome);
+                    $requestImage->move(public_path('img/'), $nome);
+
                     $teste = Arquivo::create([
                         'nome' => 'aa',
-                        'caminho' => 'askdjkl',
+                        'caminho' => "img/". $nome,
                         'tipo'  => 'foto'
                     ]);
 
-                    $user->update([
-                        'arq_id' => $teste->arq_id
-                    ]);
-
+                    $user->arq_id = $teste->arq_id;
+                    $user->save;
 
                 }
 
