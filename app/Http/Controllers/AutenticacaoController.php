@@ -33,8 +33,8 @@ class AutenticacaoController extends Controller
                 $arq = Arquivo::where('arq_id', $user->arq_id)->first();
 
                 $user['foto'] = $arq ? $arq->caminho : "img/default-photo.png";
-
                 session()->put('user', $user);
+
                 session()->flash('success-message', 'Autenticado com sucesso!');
 
                 return redirect()->route('inicio');
