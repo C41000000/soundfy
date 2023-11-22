@@ -364,6 +364,7 @@ figure.box-banner img{
     border-radius: 10px;
     height: 25vh !important;
     width: 100% !important;
+    cursor: pointer;
 }
 figure.image-group-default img{
     border-radius: 10px;
