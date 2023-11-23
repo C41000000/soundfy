@@ -32,7 +32,7 @@ class FeedAtividadesController extends Controller
                 unset($lastUsers[$key]);
                 continue;
             }
-//            dd(session()->get('user')->only('user_id'));
+
             $lastUsers[$key]['foto'] = $cada_usr->foto ? $cada_usr->foto['caminho'] : "img/default-photo.png";
         }
         return view('feed-atividades.index', ['posts' => $feed, 'lastUsers' => $lastUsers]);

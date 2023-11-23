@@ -46,6 +46,7 @@ Route::prefix('genero')->group(function (){
 Route::prefix('artista')->group(function (){
     Route::get("/perfil/{id}", [ArtistaController::class, 'index'])->name("perfil");
     Route::any('/edit/{id}', [ArtistaController::class, 'edit'])->name('editar-usuario');
+    Route::any('/descricao/{id}', [ArtistaController::class, 'updateDescription'])->name('editar-descricao');
     Route::post('/store', [ArtistaController::class, 'store']);
 });
 

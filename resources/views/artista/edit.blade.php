@@ -39,17 +39,16 @@
         </div>
 
         <div class="wrap w80 center margin-down-default w95-device-small">
-            <form method="post" action="{{ route('inicio', $user->id) }}" class="box">
+            <form method="post" action="{{ route('editar-descricao', $user->usr_id) }}" class="box">
                 @csrf
-                @method('put')
                 <div class="w70 items-flex center w100-device-small flex-wrap-device-small">
                     <div class="w60 w100-device-small margin-down-small-device-small">
-                        <textarea name="about" class="bgBlackWeakIn w90 w100-device-small" placeholder="About you">{{ $user->about ?? old('about') }}</textarea>
+                        <textarea name="descricao" class="bgBlackWeakIn w90 w100-device-small" placeholder="About you">{{ $user->descricao ?? "" }}</textarea>
                     </div>
                     <div class="w40 w100-device-small">
                         <input type="hidden" name="id" value="{{ $user->id }}" />
 {{--                        <input type="text" name="title_user" value="{{ $user->title_user ?? old('title_user') }}" class="bgBlackWeakIn margin-down-small w100" placeholder="Title for bio" />--}}
-                        <input type="text" size="11" onKeyUp="maskNumber(this, event)" name="phone_number" value="{{ $user->phone_number ?? old('phone_number') }}" class="bgBlackWeakIn margin-down-small w100" placeholder="Number Phone" />
+
                         <button class="bgBlackWeakIn w100 center">Update</button>
                     </div>
                 </div>

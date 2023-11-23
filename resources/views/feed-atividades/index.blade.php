@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @php
+
     $image = Session::get("user")? Session::get("user")['foto'] : "img/default-photo.png";
 
 @endphp
@@ -28,17 +29,10 @@
                             @endphp
                         </h6>
                     </div>
-                    <div class="item margin-down-small">
-{{--                        @foreach($communitys as $groups)--}}
-{{--                            <div class="margin-down-small">--}}
-{{--                                <a href="{{ route('group', $groups->id) }}">--}}
-{{--                                    <figure class="box-banner margin-down-small-in">--}}
-{{--                                        <img src="<?php if($groups->image !== null){ echo url("storage/$groups->image"); }else{ echo url("storage/posts/hello-world.png"); } ?>" />--}}
-{{--                                    </figure>--}}
-{{--                                    <h5>{{ $groups->name_community }}</h5>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
+                    <div class="item margin-down-small" style="color: white">
+                        @if(session()->has('user'))
+                            {{Session::get('user')['descricao']}}
+                        @endif
                     </div>
                 </div>
             </div>

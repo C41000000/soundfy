@@ -46,7 +46,8 @@ class ArtistaController extends Controller
                     ]);
 
                     $user->arq_id = $teste->arq_id;
-                    $user->save;
+                    $user->save();
+
 
                 }
 
@@ -54,8 +55,13 @@ class ArtistaController extends Controller
                     'nome' => $dados['nome'],
                     'nome_usuario' => $dados['nome_usuario'],
                     'email' => $dados['email'],
-//                    'password' => $dados['password'] ? Hash::make($dados['password']) : $user->password
                 ]);
+
+                $user = User::where('usr_id', $user->usr_id)->first();
+                $arq = Arquivo::where('arq_id', $user->arq_id)->first();
+                $user['foto'] = $arq ? $arq->caminho : "img/default-photo.png";
+                session()->put('user', $user);
+
                 session()->flash("success-message", "Dados atualizados");
             }
             catch (\Exception $e){
@@ -68,5 +74,23 @@ class ArtistaController extends Controller
         $data['foto'] = Arquivo::where("arq_id", $data->arq_id)->first();
 
         return view('artista.edit', ['user' => $data]);
+    }
+
+    public function updateDescription(Request $request, $id){
+        $description = $request->all();
+
+        $user = User::where('usr_id', $id)->first();
+
+        if(!$user){
+            session()->flash('error-message', 'Artista não identificado');
+            return redirect()->route('inicio');
+        }
+
+        $user->descricao = $description['descricao'];
+        $user->save();
+
+        session()->flash('success-message', 'Descrição atrualizada com sucesso');
+
+        return view('artista.edit', ['user' => $user]);
     }
 }
