@@ -1,0 +1,22 @@
+@include('layouts.main')
+
+@section('content')
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Artistas</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Caio</td>
+                    <td>Caio</td>
+                    <td>Caio</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+@endsection
