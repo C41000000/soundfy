@@ -6,8 +6,8 @@ use App\Models\Genero;
 use App\Models\Artista;
 use App\Models\Arquivo;
 use App\Models\Musica;
-use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class MusicaController extends Controller
@@ -71,10 +71,10 @@ class MusicaController extends Controller
             'musica.titulo as titulo_musica',
             'genero.nome as nome_genero',
             'users.nome as compositor',
-            DB::raw('DATE_FORMAT("musica.created_at", "%d/%m/%Y") as data_criacao')
+            DB::raw("DATE_FORMAT(musica.created_at, '%d/%m/%Y %H:%i' ) as data_criacao"),
         ])
             ->leftJoin('genero', 'genero.id_genero', 'musica.id_genero')
-            ->leftJoin('pessoas', 'musica.usr_id', 'users.usr_id');
+            ->leftJoin('users', 'musica.usr_id', 'users.usr_id');
 
         return DataTables::of($music)->make();
     }
