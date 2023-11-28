@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css">
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+    <link href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     @yield('title')
 </head>
 <body>
