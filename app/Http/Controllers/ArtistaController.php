@@ -71,7 +71,7 @@ class ArtistaController extends Controller
         }
 
         $data = User::where("usr_id", $id)->first();
-        $data['foto'] = Arquivo::where("arq_id", $data->arq_id)->first();
+        $data['foto'] = Arquivo::where("arq_id", $data->arq_id)->first()->caminho;
 
         return view('artista.edit', ['user' => $data]);
     }
@@ -88,7 +88,10 @@ class ArtistaController extends Controller
 
         $user->descricao = $description['descricao'];
         $user->save();
-
+        $user = User::where('usr_id', $user->usr_id)->first();
+        $arq = Arquivo::where('arq_id', $user->arq_id)->first();
+        $user['foto'] = $arq ? $arq->caminho : "img/default-photo.png";
+        session()->put('user', $user);
         session()->flash('success-message', 'Descrição atrualizada com sucesso');
 
         return view('artista.edit', ['user' => $user]);

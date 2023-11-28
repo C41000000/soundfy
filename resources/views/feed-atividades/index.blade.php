@@ -3,7 +3,7 @@
 @php
 
     $image = Session::get("user")? Session::get("user")['foto'] : "img/default-photo.png";
-
+//    dd( Session::get("user"));
 @endphp
 
 @section('content')
