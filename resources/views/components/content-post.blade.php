@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="row">
-            <h5 class="margin-down-small-in">{{ $post['user']['nome'] . " " . $post->descricao ?? old('title') }}</h5>
-            <p class="description">{{$post->descricao ?? old('content') }}</p>
+            <h5 class="margin-down-small-in"> {{$post->descricao ?? old('title') }}</h5>
+{{--            <p class="description">{{$post->descricao ?? old('content') }}</p>--}}
             <figure class="content-figure img-post-default margin-top-small text-center" style="width: 50%; height: 50%;">
                 <?php
                 $music = $post['arqs']['caminho'] ?? old('image');

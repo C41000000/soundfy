@@ -40,5 +40,5 @@ class FeedAtividades extends Model
             return $this->hasOne(Arquivo::class, 'arq_id', 'arq_id');
     }
 
-    // Você pode definir um relacionamento com a tabela relacionada ao campo 'arq_id' se necessário.
+
 }
