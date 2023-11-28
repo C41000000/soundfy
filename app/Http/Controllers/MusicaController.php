@@ -68,6 +68,7 @@ class MusicaController extends Controller
     public function list()
     {
         $music = Musica::select([
+            'id_musica',
             'musica.titulo as titulo_musica',
             'genero.nome as nome_genero',
             'users.nome as compositor',
