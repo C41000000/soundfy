@@ -36,6 +36,9 @@ Route::prefix('musica')->group(function () {
     Route::get('/', [MusicaController::class, 'index']);
     Route::get('/cadastro', [MusicaController::class, 'showForm']);
     Route::post('/cadastro', [MusicaController::class, 'store']);
+    Route::get('/lista', [MusicaController::class, 'list']);
+    Route::get('/editar', [MusicaController::class, 'show']);
+    Route::get('/salvar/{id}', [MusicaController::class, 'update']);
 });
 
 Route::prefix('genero')->group(function (){

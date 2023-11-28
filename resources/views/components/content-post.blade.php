@@ -3,8 +3,13 @@
         <div class="row items-flex margin-down-small">
             <div class="col items-flex align-center w50">
                 <figure class="img-user-default margin-right-small items-flex align-center">
+                    @php
+                        $img = is_array($post['user']['foto']) ? $post['user']['foto']['caminho'] : $post['user']['foto'];
+                    @endphp
 
-                    <img src="{{ url($post['user']['foto']['caminho']) }}" />
+
+                        <img src="{{ url($img) }}" />
+
                 </figure>
                 <div class="margin-left-small">
                     <h6>{{ $post['user']['nome']}}</h6>
