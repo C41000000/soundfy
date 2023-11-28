@@ -33,10 +33,10 @@
                                                             </td>
                                                         @endif
                                                         <td>
-                                                            <a href="details"><i class="ri-eye-line"></i></a>
+                                                            <a href="{{route('ver-projeto', $cada_projeto->id_projeto)}}"><i class="ri-eye-line"></i></a>
                                                             @if( session()->get('user') && $cada_projeto->usr_id == session()->get('user')->usr_id)
-                                                            <a href="edit"><i class="ri-pencil-line"></i></a>
-                                                            <a href="delete"><i class="ri-delete-bin-7-line"></i></a>
+                                                            <a href="{{route('editar-projeto', $cada_projeto->id_projeto)}}"><i class="ri-pencil-line"></i></a>
+                                                            <a href="{{route('deletar-projeto', $cada_projeto->id_projeto)}}"><i class="ri-delete-bin-7-line"></i></a>
                                                             @endif
                                                         </td>
                                                     </tr>

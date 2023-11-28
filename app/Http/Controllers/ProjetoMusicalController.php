@@ -78,4 +78,15 @@ class ProjetoMusicalController extends Controller
 
         return view('projeto-musical.create', ['users' => $usuarios, 'musicas' => $musicas]);
     }
+
+    public function details($id){
+
+    }
+
+    public function edit(Request $request, $id){
+
+    }
+    public function delete($id){
+
+    }
 }

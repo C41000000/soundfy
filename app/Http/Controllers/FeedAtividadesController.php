@@ -18,7 +18,7 @@ class FeedAtividadesController extends Controller
 
         foreach($feed as $key => $cada_post){
             $feed[$key]['user'] = $cada_post->user;
-            $feed[$key]['user']['foto'] = $cada_post->user->foto ? $cada_post->user->foto : "img/default-photo.png";
+            $feed[$key]['user']['foto'] = $cada_post->user->foto ? $cada_post->user->foto->caminho : "img/default-photo.png";
             $feed[$key]['arqs'] = $cada_post->arquivos ? $cada_post->arquivos : null;
 
         }

@@ -57,6 +57,9 @@ Route::prefix('artista')->group(function (){
 Route::prefix('projeto')->group(function (){
     Route::get('/listagem', [ProjetoMusicalController::class, 'index'])->name('projetos');
     Route::any('/create', [ProjetoMusicalController::class, 'create'])->name('criar-projeto');
+    Route::any('/edit/{id}', [ProjetoMusicalController::class, 'edit'])->name('editar-projeto');
+    Route::get('/details/{id}', [ProjetoMusicalController::class, 'details'])->name('ver-projeto');
+    Route::get('/delete/{id}', [ProjetoMusicalController::class, 'delete'])->name('deletar-projeto');
 });
 
 Route::middleware([
