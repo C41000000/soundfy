@@ -22,7 +22,6 @@ class FeedAtividadesController extends Controller
             $feed[$key]['arqs'] = $cada_post->arquivos ? $cada_post->arquivos : null;
 
         }
-//        dd($feed);
         $lastUsers = User::get();
 
         if($lastUsers->first()){

@@ -26,7 +26,7 @@
                     <div class="text-center w100-device-small">
                         <figure class="img-user-bigger margin-left-default margin-down-small">
                             <label for="image">
-                                @php $img = $user->foto? $user->foto['caminho']: "img/default-photo.png" @endphp
+                                @php $img = $user->foto? $user->foto: "img/default-photo.png" @endphp
                                 <img src="{{ url("{$img}") }}" />
                                 <input type="file" name="image" id="image" value="{{$img}}" style="display:none" />
                             </label>
