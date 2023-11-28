@@ -15,5 +15,8 @@ class ProjetoMusica extends Model
     ];
     protected $primaryKey = "id_projeto_musica";
 
+    public function musica(){
+        return $this->hasOne(Musica::class, 'id_musica');
+    }
 
 }

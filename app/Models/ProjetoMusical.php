@@ -36,13 +36,10 @@ class ProjetoMusical extends Model
         return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
     }
 
-    public function musica(): HasMany
-    {
-        return $this->hasMany(Musica::class, 'id_musica');
-    }
 
-    public function projetoMusica(): BelongsToMany
+
+    public function projetoMusica(): HasMany
     {
-        return $this->belongsToMany(ProjetoMusica::class, 'projeto_musica', 'id_projeto');
+        return $this->hasMany(ProjetoMusica::class, 'id_projeto');
     }
 }

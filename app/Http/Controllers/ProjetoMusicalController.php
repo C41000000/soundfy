@@ -13,14 +13,22 @@ use Illuminate\Support\Facades\DB;
 
 class ProjetoMusicalController extends Controller
 {
-    public function index(){
-        $projetos = ProjetoMusical::get()->first();
-//        dd($projetos->musica);
+    public function index(
+        \App\Services\ProjetoMusical $service_musica,
+        \App\Services\UsuarioProjeto $service_usr_projeto)
+    {
+        $projetos = ProjetoMusical::get();
+
         if($projetos->first() == null){
             $projetos = false;
         }
 
-
+        if($projetos){
+            foreach ($projetos as $key => $cada_projeto){
+                $projetos[$key]['musicas'] = $service_musica->buscaMusicas($cada_projeto->id_projeto);
+                $projetos[$key]['artistas'] = $service_usr_projeto->buscaUsuarios($cada_projeto->id_projeto);
+            }
+        }
         return view('projeto-musical.index', ['projetos' => $projetos]);
     }
 

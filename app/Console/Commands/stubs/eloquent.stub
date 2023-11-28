@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Repositories\Eloquents;
+
+use App\Repositories\Interfaces\{{interface}};
+use Illuminate\Database\Eloquent\Model;
+
+class {{class}} implements {{interface}}
+{
+    private $model;
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
+
+}
