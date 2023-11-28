@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-
+@section('title', 'Editar Perfil');
 
 @section('content')
     <main class="settings-container">

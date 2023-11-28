@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'Feed');
 @php
 
     $image = Session::get("user")? Session::get("user")['foto'] : "img/default-photo.png";

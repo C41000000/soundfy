@@ -476,3 +476,36 @@ figure.image-group-default img{
     }
 }
 
+.create-button{
+    padding: 10px;
+    background: #30420c;
+    width: 21%;
+    margin: auto;
+    border-radius: 2em;
+    cursor: pointer;
+
+}
+.create-button:hover{
+    background-color: #4b6915;
+}
+.tabelas{
+    width: 50%;
+    margin: auto;
+}
+@media(max-width: 768px){
+    .tabelas{
+        width: 100%;
+        margin: auto;
+    }
+
+    .create-button{
+        width: 100%;
+    }
+}
+
+.selects{
+    padding: 10px;
+    background: #242627;
+    border: none;
+    color: #777777;
+}

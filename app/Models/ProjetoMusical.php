@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProjetoMusical extends Model
 {
@@ -29,8 +31,18 @@ class ProjetoMusical extends Model
     /**
      * Define o relacionamento com a tabela 'users' usando a chave estrangeira 'usr_id'
      */
-    public function user()
+    public function user(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'usr_id', 'usr_id');
+    }
+
+    public function musica(): HasMany
+    {
+        return $this->hasMany(Musica::class, 'id_musica');
+    }
+
+    public function projetoMusica(): BelongsToMany
+    {
+        return $this->belongsToMany(ProjetoMusica::class, 'projeto_musica', 'id_projeto');
     }
 }

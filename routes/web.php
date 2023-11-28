@@ -4,6 +4,7 @@ use App\Http\Controllers\AutenticacaoController;
 use App\Http\Controllers\MusicaController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\ArtistaController;
+use App\Http\Controllers\ProjetoMusicalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,11 @@ Route::prefix('artista')->group(function (){
     Route::any('/edit/{id}', [ArtistaController::class, 'edit'])->name('editar-usuario');
     Route::any('/descricao/{id}', [ArtistaController::class, 'updateDescription'])->name('editar-descricao');
     Route::post('/store', [ArtistaController::class, 'store']);
+});
+
+Route::prefix('projeto')->group(function (){
+    Route::get('/listagem', [ProjetoMusicalController::class, 'index'])->name('projetos');
+    Route::any('/create', [ProjetoMusicalController::class, 'create'])->name('criar-projeto');
 });
 
 Route::middleware([

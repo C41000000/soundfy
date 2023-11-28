@@ -18,7 +18,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
     <link href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    @yield('title')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <title>@yield('title')</title>
 </head>
 <body>
 @if(session()->has('error-message'))
@@ -61,6 +63,7 @@
         <ul class="col menu w30 items-flex just-center align-center hide-device-small">
             <li><a href="{{ route('inicio') }}"><i class="ri-home-4-line"></i></a></li>
             <li><a href="/musica"><i class="ri-add-circle-line"></i></a></li>
+            <li class=""><a href="{{ route('projetos') }}"><i class="ri-group-line"></i></a></li>
             @if(session()->has('user'))
             <li><a href="{{ route('logout') }}"><i class="ri-logout-circle-line"></i></a></li>
             @endif
@@ -94,7 +97,7 @@
         <p>@php echo 'Jallim Habbei, '. date("Y") @endphp</p>
     </div>
 </footer>
-@yield('scripts');
+@yield('scripts')
 <script src="<?php echo asset('js/layouts/main.js')?>"></script>
 
 </body>

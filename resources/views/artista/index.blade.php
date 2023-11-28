@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'Perfil');
 @section('content')
 
     <main class="container-profile margin-down-default">
